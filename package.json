@@ -4,12 +4,51 @@
   "description": "A sample Electron application demonstrating bidirectional webview ipc comms with the main process",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "install": "electron-rebuild",
+    "exec-file": "electron-builder --dir",
+    "install-file": "electron-builder"
   },
   "repository": "https://github.com/kw77/electron-webview-ipc-demo",
   "author": "KW",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "^1.6.2",
+    "electron-builder": "^22.8.0",
+    "electron-rebuild": "^2.0.1"
+  },
+  "build": {
+    "appId": "com.cilent.app.electronbuild",
+    "productName": "electron-build",
+    "directories": {
+      "output": "build"
+    },
+    "mac": {
+      "icon": "icons/Mushroom.ico"
+    },
+    "win": {
+      "icon": "icons/Mushroom.ico"
+    },
+    "linux": {
+      "icon": "icons/Mushroom.ico"
+    }
+  },
+  "dependencies": {
+    "@types/vue-router": "^2.0.0",
+    "amrhextotext": "^1.1.1",
+    "electron-is-dev": "^1.2.0",
+    "glob": "^7.1.6",
+    "glob-promise": "^3.4.0",
+    "hexify": "^1.0.1",
+    "iconv-lite": "^0.6.2",
+    "jquery": "^3.5.1",
+    "nfc-pcsc": "^0.8.0",
+    "pcsclite": "^1.0.0",
+    "serialport": "^9.0.1",
+    "smartcard": "^1.0.37",
+    "usb": "^1.6.3",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.3",
+    "express": "^4.17.1"
   }
 }

@@ -38,6 +38,13 @@ app.on('ready', createWindow);
 // via the Bridge object setup by the web view preload script)
 global.receiveMessage = function(text) {
   console.log('Message: ' + text);
+  var webContentInstances = webContents.getAllWebContents()
+
+  for(var i = 0; i < webContentInstances.length; i++){
+    if(webContentInstances[i].getUserAgent() == 'electron-webview'){
+      webContentInstances[1].send('receive-card-info', {msg:'aaaa'})
+    }
+  }
 }
 
 // SEND TO WEB VIEW
@@ -55,10 +62,11 @@ function infoToWebview(){
   console.log('Message: Sending message from main process to webview...');
 
   var webContentInstances = webContents.getAllWebContents()
-
+  console.log(webContentInstances)
   for(var i = 0; i < webContentInstances.length; i++){
     if(webContentInstances[i].getUserAgent() == 'electron-webview'){
       webContentInstances[1].send('info', {msg:'msg from MAIN process'})
     }
   }
+ 
 }

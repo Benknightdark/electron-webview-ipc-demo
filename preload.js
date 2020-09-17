@@ -41,6 +41,7 @@ function init() {
 
 // Function referenced via the Bridge ob
 function sendMessage(message) {
+  console.log(message)
     receiveMessage(message);
 }
 
@@ -53,6 +54,11 @@ function attachIPCListeners() {
   // ipc event sent via the main process to the webview webcontent context
   ipc.on('info', (event, data) => {
     window.Bridge.infoFromMain(data);
+    console.log(data)
+  });
+  ipc.on('receive-card-info', (event, data) => {
+    // window.Bridge.infoFromMain(data);
+    console.log(data)
   });
 }
 
